@@ -71,9 +71,9 @@ class PoseEstimator(object):
                         all_keypoints[int(pose_entries[n][kpt_id]), 1]
                     )
                     pose_keypoints[kpt_id, 2] = 1.0
-        pose_keypoints = pose_keypoints.reshape(-1)
-        keypoint_dict = {"people": [{"pose_keypoints": pose_keypoints.tolist()}]}
-        return keypoint_dict
+        # pose_keypoints = pose_keypoints.reshape(-1)
+        # keypoint_dict = {"people": [{"pose_keypoints": pose_keypoints.tolist()}]}
+        return pose_keypoints.tolist()
 
     def _infer_fast(
         self, img, pad_value=(0, 0, 0), img_mean=(128, 128, 128), img_scale=1 / 256
